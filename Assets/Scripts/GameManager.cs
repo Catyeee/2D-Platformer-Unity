@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     private int gemCount = 0;
     private bool isGameOver = false;
     private Vector3 playerPosition;
+    [Header("Death Settings")]
+    [SerializeField] private bool reloadSceneOnDeath = false;
+    [SerializeField] private string menuSceneName = "Menu";
+    [SerializeField] private float respawnDelay = 0.2f;
+    [SerializeField] private float postRespawnDelay = 0.2f;
 
     //Level Complete
 
@@ -120,18 +125,24 @@ public class GameManager : MonoBehaviour
    
     public IEnumerator DeathCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(respawnDelay);
         playerController.transform.position = playerPosition;
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(postRespawnDelay);
 
-        // Check if the game is still over (in case player respawns earlier)
         if (isGameOver)
         {
-            SceneManager.LoadScene(1);
-
-            
+            if (reloadSceneOnDeath)
+            {
+                SceneManager.LoadScene(menuSceneName);
+            }
+            else
+            {
+                playerController.gameObject.SetActive(true);
+                UIManager.instance.fadeFromBlack = true;
+                isGameOver = false;
+            }
         }
     }
 

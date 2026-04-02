@@ -2,21 +2,62 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private float damageInterval = 0.5f;
+    private float lastDamageTime = -999f;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Kiểm tra nếu vật chạm vào có Tag là Player
-        if (other.CompareTag("Player"))
+        DealDamageImmediate(other);
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        DealDamageOverTime(other);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        DealDamageImmediate(collision.collider);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        DealDamageOverTime(collision.collider);
+    }
+
+    private void DealDamageImmediate(Collider2D other)
+    {
+        if (!other.CompareTag("Player"))
         {
-            // Gọi hàm trừ máu từ HealthManager mà bạn đã có
-            if (HealthManager.instance != null)
-            {
-                HealthManager.instance.HurtPlayer();
-                Debug.Log("Đã trừ 1 đơn vị máu!");
-            }
-            else
-            {
-                Debug.LogError("Chưa tìm thấy HealthManager trong Scene!");
-            }
+            return;
+        }
+
+        ApplyDamage();
+    }
+
+    private void DealDamageOverTime(Collider2D other)
+    {
+        if (!other.CompareTag("Player"))
+        {
+            return;
+        }
+
+        if (damageInterval <= 0f || Time.time - lastDamageTime >= damageInterval)
+        {
+            ApplyDamage();
+        }
+    }
+
+    private void ApplyDamage()
+    {
+        if (HealthManager.instance != null)
+        {
+            HealthManager.instance.HurtPlayer();
+            lastDamageTime = Time.time;
+        }
+        else
+        {
+            Debug.LogError("Chưa tìm thấy HealthManager trong Scene!");
         }
     }
 }

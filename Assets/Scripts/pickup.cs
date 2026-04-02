@@ -12,6 +12,11 @@ public class pickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GetComponent<Enemy>() != null)
+        {
+            return;
+        }
+
         if(pt == pickupType.coin)
         {
             if(collision.gameObject.tag == "Player")
@@ -21,7 +26,10 @@ public class pickup : MonoBehaviour
                 if(coin_pickup != null)
                     AudioSource.PlayClipAtPoint(coin_pickup, transform.position);
            
-                Instantiate(PickupEffect, transform.position, Quaternion.identity);
+                if (PickupEffect != null)
+                {
+                    Instantiate(PickupEffect, transform.position, Quaternion.identity);
+                }
 
                 Destroy(this.gameObject,0.2f);
                 
@@ -35,7 +43,10 @@ public class pickup : MonoBehaviour
             {
                 GameManager.instance.IncrementGemCount();
             
-                Instantiate(PickupEffect, transform.position, Quaternion.identity);
+                if (PickupEffect != null)
+                {
+                    Instantiate(PickupEffect, transform.position, Quaternion.identity);
+                }
 
                 Destroy(this.gameObject, 0.2f);
 

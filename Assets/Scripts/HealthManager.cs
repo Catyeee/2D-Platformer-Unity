@@ -44,7 +44,10 @@ public class HealthManager : MonoBehaviour
             GameManager.instance.Death();
         }
         
-        Instantiate(damageEffect, Player.transform.position, Quaternion.identity);
+        if (damageEffect != null)
+        {
+            Instantiate(damageEffect, Player.transform.position, Quaternion.identity);
+        }
     }
 
     public void DisplayHearts()

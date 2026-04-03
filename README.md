@@ -1,37 +1,27 @@
-# 2D-platformer-Game-Unity
-2D Tilemap Platformer Unity
-Create your own 2D platformer game with ease using this Unity project template. This repository provides a foundation for building classic side-scrolling platformers with Unity's powerful 2D features.
+# LAB 04: PHÂN TÍCH VÀ MỞ RỘNG DỰ ÁN 2D-PLATFORMER-UNITY
 
-## Features:
-Tilemap Integration: Leverage Unity's Tilemap system for efficient level design and quick iteration.
+## ## Thông tin sinh viên
+- **Họ tên**: Nguyễn Thị Trường Nga
+- **MSSV**: 2312697
+- **Lớp**: CTK47A
 
-Player Controller: A customizable player controller script with smooth movement and double jump movement.
+## ## Mô tả
+Bài thực hành Lab 04 môn **Game 2D Development with Unity**.
+PHÂN TÍCH VÀ MỞ RỘNG DỰ ÁN 2D-PLATFORMER-UNITY
 
-Animated Player Controller: Player control with Idle, Run, Jump animations implemented in the project.
+## ## Các thay đổi đã thực hiện
+- Bổ sung các hiệu ứng âm thanh phù hợp: nhặt vật phẩm, chiến thắng,...  
+![Âm thanh khi nhảy](Screenshots/sound.png)
+- Bổ sung cơ chế bẫy, kẻ thù  
+![Cơ chế bẫy và kẻ thù](Screenshots/Final.png)
+- Tuỳ chỉnh UI, xây dựng thêm menu About, khi người dùng click vào menu About, hệ thống hiển thị thông tin bao gồm: Tên Game, Mô tả ngắn, Danh sách thành viên nhóm
+![Menu](Screenshots/MenuAbout.png)
+![About](Screenshots/About.png)
 
-Game Manager and UI Manager: Systems to manage gameplay.
-
-Player Death and Respawning: Respawn and death system.
-
-Platformer Mechanics: Jumping, double-jumping, and grounded movement are all set up for a classic platformer feel.
-
-Coins and Pickups: Coins and Pickups to make gameplay feel fun.
-
-## Getting Started:
-Clone the repository.
-Open the project in Unity (compatible with Unity 20xx.xx).
-Explore the sample scenes and adapt them to fit your game concept.
-Customize player sprites, tilesets, and level design to create your unique platformer experience.
-Documentation:
-Refer to the Wiki for detailed documentation and guidelines on using the template, implementing new features, and optimizing your game.
-
-## Contributions:
-Contributions are welcome! Whether you want to fix bugs, improve existing features, or add new functionality, feel free to fork the repository and submit pull requests.
-
-## License:
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-![Screenshot (1513)](https://github.com/striderzz/2D-platformer/assets/72110940/86828c36-c457-438c-a09d-abff34692e71)
-
-
+## ## Kiến thức đã học được
+1. Biết cách clone và mở một dự án Unity từ GitHub.
+2. Hiểu cấu trúc thư mục của một dự án Game 2D.
+3. Cách chỉnh sửa các thông số trong Canvas của Unity.
+4. Cách quản lý phiên bản và commit thay đổi bằng Git.
+5. Sử dụng Markdown để viết báo cáo chuyên nghiệp.
 

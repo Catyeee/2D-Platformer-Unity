@@ -3,6 +3,10 @@
 ## ## Thông tin sinh viên
 - **Họ tên**: Nguyễn Thị Trường Nga
 - **MSSV**: 2312697
+- **Họ tên**: Nguyễn Ngọc Hân
+- **MSSV**: 2312607
+- **Họ tên**: Ngô Văn Chương
+- **MSSV**: 23125888
 - **Lớp**: CTK47A
 
 ## ## Mô tả
